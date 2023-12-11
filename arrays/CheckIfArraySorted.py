@@ -13,6 +13,7 @@ def isSorted(n: int,  a: [int]) -> int:
     
     return 1
 
+# This is another method
 def isSorted(n, a):
     for i in range(1, n):
         if a[i] < a[i -1]:
