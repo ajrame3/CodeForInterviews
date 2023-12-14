@@ -1,5 +1,5 @@
 def removeDuplicates(arr,n):
-    # Write your code here.
+    # this returns the length of new array.
     if n == 0:
         return 0
     
