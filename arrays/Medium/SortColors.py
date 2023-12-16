@@ -25,7 +25,41 @@ def sort_colors(nums):
         else:
             nums[mid], nums[high] = nums[high], nums[mid]
             high =- 1
-            
 
+# Another technique is:
+
+class Solution(object):
+    def sortColors(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+
+        Looked at counting sort algorithm
+        Based on counting sort algorithm,
+
+        Created frequency count of each num(color)
+        Just implemented the Counting Sort step by step
+        """
+        #Time Complexity --> O(n)
+        #Time taken to implment : 50 minutes
+        
+        if len(nums) == 0 or len(nums) == 1:
+            return nums
+
+        freq_hash = [0] * (len(nums) + 1)
+
+        for num in nums:
+            freq_hash[num] += 1
+        
+        for i in range(1, len(freq_hash)):
+            freq_hash[i] = freq_hash[i - 1] + freq_hash[i]
+        
+        res = [None] * len(nums)
+
+        for from_last in reversed(nums):
+            res[freq_hash[from_last] - 1] = from_last
+            freq_hash[from_last] -= 1
+        
+        nums[:] = res
     
 
