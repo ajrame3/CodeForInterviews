@@ -1,3 +1,4 @@
+# 432
 class LinkedList:
     def __init__(self, val, cnt=0, next_node=None, prev_node=None):
         self.val = val
